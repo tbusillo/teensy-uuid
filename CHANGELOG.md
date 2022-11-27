@@ -4,10 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.4](https://github.com/tbusillo/teensy-uuid/compare/v0.0.3...v0.0.4) (2022-11-27)
 
-
 ### Bug Fixes
 
-* add ternary to check for presence of crypto ([178aeb1](https://github.com/tbusillo/teensy-uuid/commit/178aeb10f632a80017e7a85143f5ffb22cb33e77))
+- add ternary to check for presence of crypto ([178aeb1](https://github.com/tbusillo/teensy-uuid/commit/178aeb10f632a80017e7a85143f5ffb22cb33e77))
 
 ### [0.0.3](https://github.com/tbusillo/teensy-uuid/compare/v0.0.2...v0.0.3) (2022-11-27)
 
