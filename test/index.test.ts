@@ -10,7 +10,13 @@ describe('uuid', () => {
     const pattern = new RegExp(
       /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
     )
-    console.log(id)
+
     expect(id).toMatch(pattern)
+  })
+
+  it('generates unique IDs', () => {
+    const id1 = uuid()
+    const id2 = uuid()
+    expect(id1).not.toMatch(id2)
   })
 })
