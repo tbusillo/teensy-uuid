@@ -1,7 +1,7 @@
 {
   "name": "@tbusillo/teensy-uuid",
   "author": "Tom Busillo",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "packageManager": "pnpm@7.13.2",
   "description": "A teensy-tiny Node.js TypeScript package template.",
   "type": "module",
@@ -35,6 +35,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "@tbusillo:registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "dev": "unbuild",
     "start": "nodemon --exec ts-node src/index.ts",
