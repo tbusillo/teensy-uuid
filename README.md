@@ -13,12 +13,10 @@
 
 ## Features
 
-- [TypeScript](https://www.typescriptlang.org/) right from the start
-- Bundling using [Rollup](https://github.com/rollup/rollup) and [unbuild](https://github.com/unjs/unbuild) with native supports for `ESM/CJS` packages
-- Unit testing using [jest](https://jestjs.io/) / `ts-jest`
-- [ESLint](https://github.com/eslint/eslint), [prettier](https://github.com/prettier/prettier), and git hooks with [Husky](https://github.com/typicode/husky)
-- CI/CD workflows using [Github Actions](https://docs.github.com/en/actions)
-- Extendable configurations (e.g., tsconfig) perfect for use in monorepos
+- 3.5kb
+- RFC 4122 compliant UUID v4
+- Uses `crypto.webcrypto` for generating random numbers used to seed UUID
+- Use of `.webcrypto` makes this package usable in Node as well as the browser 
 
 ## Installation
 
