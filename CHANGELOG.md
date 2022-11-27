@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/tbusillo/teensy-uuid/compare/v0.0.4...v0.0.5) (2022-11-27)
+
+
+### Bug Fixes
+
+* make crypto use webcrypto ([5783319](https://github.com/tbusillo/teensy-uuid/commit/5783319779085818044486fd9e7c621f090a9e07))
+
 ### [0.0.4](https://github.com/tbusillo/teensy-uuid/compare/v0.0.3...v0.0.4) (2022-11-27)
 
 ### Bug Fixes
