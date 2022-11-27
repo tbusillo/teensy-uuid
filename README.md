@@ -1,9 +1,9 @@
 <br/>
 <h1 align="center">
-  WIP - Teensy Tiny TypeScript Package
+  Teensy Tiny UUID v4 Generator
 </h1>
 <p align="middle">
-  A lightweight template to make your next project just a litle easier.
+  An RFC 4122 compliant UUID v4 generator compatible with browser and Node APIs.
   </p>
 <br/>
 <p align="center">

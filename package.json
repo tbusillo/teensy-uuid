@@ -1,24 +1,25 @@
 {
-  "name": "@tbusillo/teensy-typescript-package",
+  "name": "@tbusillo/teensy-uuid",
   "author": "Tom Busillo",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "packageManager": "pnpm@7.13.2",
   "description": "A teensy-tiny Node.js TypeScript package template.",
   "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tbusillo/teensy-typescript-package.git"
+    "url": "https://github.com/tbusillo/teensy-uuid.git"
   },
   "bugs": {
-    "url": "https://github.com/antfu/unplugin-starter/issues"
+    "url": "https://github.com/tbusillo/teensy-uuid/issues"
   },
   "keywords": [
     "typescript",
     "node",
     "package",
     "template",
-    "nodejs"
+    "nodejs",
+    "uuid"
   ],
   "sideEffects": false,
   "main": "./dist/index.mjs",
