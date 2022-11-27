@@ -1,5 +1,4 @@
-import crypto from 'node:crypto'
-import webcrypto from 'crypto'
+import { webcrypto } from 'crypto'
 
 /**
  * @description Generates a 128 bit randomly-generated and RFC 4122 version 4 UUID
@@ -10,10 +9,10 @@ const uuid = (): string => {
   const typedArray: Uint8Array = new Uint8Array(16)
 
   // Generate 16 random bytes
-  const bytes: Uint8Array = crypto
-    ? crypto.webcrypto.getRandomValues(typedArray)
-    : webcrypto.getRandomValues(typedArray)
-
+  const bytes: Uint8Array = webcrypto.getRandomValues(typedArray)
+  //   ? crypto.getRandomValues(typedArray)
+  //   : webcrypto.getRandomValues(typedArray)
+  console.log({ bytes })
   if (!bytes || bytes.length !== 16) {
     throw new Error(
       'Unable to generate random bytes using crypto.webcrypto.getRandomValues()'
@@ -47,5 +46,7 @@ const uuid = (): string => {
   // Add four hyphen "-" characters to obtain blocks of 8, 4, 4, 4 and 12 hex digits
   return result
 }
+
+console.log(uuid())
 
 export default uuid
