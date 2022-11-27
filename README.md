@@ -16,7 +16,7 @@
 - 3.5kb
 - RFC 4122 compliant UUID v4
 - Uses `crypto.webcrypto` for generating random numbers used to seed UUID
-- Use of `.webcrypto` makes this package usable in Node as well as the browser 
+- Use of `.webcrypto` makes this package usable in Node as well as the browser
 
 ## Installation
 
