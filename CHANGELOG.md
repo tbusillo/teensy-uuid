@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.4](https://github.com/tbusillo/teensy-uuid/compare/v0.0.2...v0.0.4) (2022-11-27)
+### [0.0.3](https://github.com/tbusillo/teensy-uuid/compare/v0.0.2...v0.0.3) (2022-11-27)
 
 
 ### Bug Fixes
 
 * make build generate correct output ([9fe84cd](https://github.com/tbusillo/teensy-uuid/commit/9fe84cdbfd1a3103cf6418fc8295a0bc686ebafc))
+
+### [0.0.4](https://github.com/tbusillo/teensy-uuid/compare/v0.0.2...v0.0.4) (2022-11-27)
+
+### Bug Fixes
+
+- make build generate correct output ([9fe84cd](https://github.com/tbusillo/teensy-uuid/commit/9fe84cdbfd1a3103cf6418fc8295a0bc686ebafc))
 
 ### [0.0.3](https://github.com/tbusillo/teensy-uuid/compare/v0.0.2...v0.0.3) (2022-11-27)
 
