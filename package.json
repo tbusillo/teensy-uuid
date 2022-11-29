@@ -3,7 +3,7 @@
   "author": "Tom Busillo",
   "version": "0.0.6",
   "packageManager": "pnpm@7.13.2",
-  "description": "A teensy-tiny Node.js TypeScript package template.",
+  "description": "A teensy-tiny Node UUID v4 generator",
   "type": "module",
   "license": "MIT",
   "repository": {
@@ -22,7 +22,7 @@
     "uuid"
   ],
   "sideEffects": false,
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -83,7 +83,7 @@
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.1",
-    "jest": "28",
+    "jest": "^28.1.3",
     "lint-staged": "^13.0.3",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
