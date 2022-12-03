@@ -1,5 +1,11 @@
 import { convertToHex, formatUUID, setSignificantBits } from './utils'
 
+/**
+ * @description Generates a 128 bit randomly-generated and RFC 4122 version 4 UUID
+ *
+ * @returns {string} Output a 36-character string in the folowing format: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+ */
+
 export const browserUUID = (): string => {
   const crypto = typeof window !== 'undefined' && window.crypto
 

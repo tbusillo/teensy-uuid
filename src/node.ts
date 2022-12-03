@@ -1,6 +1,12 @@
 import crypto from 'node:crypto'
 import { formatUUID, setSignificantBits } from './utils'
 
+/**
+ * @description Generates a 128 bit randomly-generated and RFC 4122 version 4 UUID
+ *
+ * @returns {string} Output a 36-character string in the folowing format: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+ */
+
 export const nodeUUID = (): string => {
   // Generate 16 random bytes
   const bytes: Uint8Array = crypto.webcrypto.getRandomValues(new Uint8Array(16))
