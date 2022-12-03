@@ -1,7 +1,8 @@
 import { convertToHex, formatUUID, setSignificantBits } from './utils'
 
 export const browserUUID = (): string => {
-  const crypto = globalThis.crypto
+  const crypto = typeof window !== 'undefined' && window.crypto
+
   if (crypto) {
     // Generate 16 random bytes
     const bytes: Uint8Array = crypto.getRandomValues(new Uint8Array(16))

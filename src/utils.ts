@@ -1,4 +1,7 @@
 const convertToHex = (vals: Uint8Array): string => {
+  if (globalThis) {
+    return [...vals].map(val => val.toString(16).padStart(2, '0')).join('')
+  }
   return Buffer.from(vals).toString('hex')
 }
 

@@ -2,13 +2,11 @@ import { nodeUUID } from './node'
 import { browserUUID } from './browser'
 
 const uuid = (): string => {
-  let result: string = ''
-  if (globalThis) {
-    result = browserUUID()
+  if (typeof window !== 'undefined') {
+    return browserUUID()
   } else {
-    result = nodeUUID()
+    return nodeUUID()
   }
-  return result
 }
 
 export default uuid

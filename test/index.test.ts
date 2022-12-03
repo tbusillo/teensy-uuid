@@ -19,4 +19,10 @@ describe('uuid', () => {
     const id2 = uuid()
     expect(id1).not.toMatch(id2)
   })
+
+  describe('when used in a browser', () => {
+    it('returns a UUID without errors', () => {
+      expect(uuid()).toBeDefined()
+    })
+  })
 })
