@@ -4,10 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.8](https://github.com/tbusillo/teensy-uuid/compare/v0.0.7...v0.0.8) (2022-12-03)
 
-
 ### Features
 
-* browser and node working ([72fec1a](https://github.com/tbusillo/teensy-uuid/commit/72fec1aa537e4120bc5c38d1d851927ee0f6dffb))
+- browser and node working ([72fec1a](https://github.com/tbusillo/teensy-uuid/commit/72fec1aa537e4120bc5c38d1d851927ee0f6dffb))
 
 ### [0.0.7](https://github.com/tbusillo/teensy-uuid/compare/v0.0.6...v0.0.7) (2022-11-29)
 
