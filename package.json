@@ -42,7 +42,7 @@
     "dev": "unbuild",
     "start": "nodemon --exec ts-node src/index.ts",
     "prebuild": "test \"$CI\" = true && npx pnpm install -r --store=node_modules/.pnpm-store || echo skiping pnpm install",
-    "build": "pnpm clean && tsc -p .",
+    "build": "pnpm clean && unbuild",
     "stub": "pnpm unbuild --stub",
     "test": "jest",
     "lint": "eslint --ext .ts --fix",

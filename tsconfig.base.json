@@ -14,7 +14,8 @@
     "declaration": true,
     "declarationDir": "dist",
     "allowJs": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true
   },
   "include": ["src/*.ts"],
   "exclude": ["node_modules"],
