@@ -10,3 +10,4 @@ const uuid = (): string => {
 }
 
 export default uuid
+export { nodeUUID, browserUUID }
