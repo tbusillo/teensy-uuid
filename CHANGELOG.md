@@ -4,11 +4,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.9](https://github.com/tbusillo/teensy-uuid/compare/v0.0.8...v0.0.9) (2022-12-28)
 
-
 ### Bug Fixes
 
-* make package.json private equal to false ([5e82580](https://github.com/tbusillo/teensy-uuid/commit/5e8258081e7a4abb711bba46ac7f6577cb164b45))
-* update publish config ([1100183](https://github.com/tbusillo/teensy-uuid/commit/1100183f5914636fdd4f95db2fc705620bfe2212))
+- make package.json private equal to false ([5e82580](https://github.com/tbusillo/teensy-uuid/commit/5e8258081e7a4abb711bba46ac7f6577cb164b45))
+- update publish config ([1100183](https://github.com/tbusillo/teensy-uuid/commit/1100183f5914636fdd4f95db2fc705620bfe2212))
 
 ### [0.0.8](https://github.com/tbusillo/teensy-uuid/compare/v0.0.7...v0.0.8) (2022-12-03)
 
