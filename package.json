@@ -1,5 +1,5 @@
 {
-  "name": "@tbusillo/teensy-uuid",
+  "name": "@teensy/uuid",
   "author": "Tom Busillo",
   "version": "0.0.8",
   "packageManager": "pnpm@7.13.2",
@@ -52,7 +52,8 @@
     "release": "standard-version",
     "format": "prettier --write '**/*.{ts,js,json,md}'",
     "lint-staged": "pnpm lint && pnpm format",
-    "prepare": "pnpm husky install"
+    "prepare": "pnpm husky install",
+    "publish": "pnpm build && pnpm publish --access public"
   },
   "nodemonConfig": {
     "include": [
