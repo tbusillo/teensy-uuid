@@ -5,7 +5,6 @@
   "packageManager": "pnpm@7.13.2",
   "description": "A teensy-tiny Node UUID v4 generator",
   "type": "module",
-  "private": false,
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -37,7 +36,7 @@
     "dist"
   ],
   "publishConfig": {
-    "@tbusillo:registry": "https://npm.pkg.github.com"
+    "@teensy:registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "dev": "unbuild",
