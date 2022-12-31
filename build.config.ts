@@ -18,7 +18,8 @@ export default defineBuildConfig({
     {
       builder: 'rollup',
       input: './src/index',
-      outDir: './dist'
+      outDir: './dist',
+      format: 'esm'
     }
   ],
   rollup: {
