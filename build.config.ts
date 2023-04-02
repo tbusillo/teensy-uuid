@@ -5,31 +5,29 @@ export default defineBuildConfig({
   entries: [
     // default
     './src/index',
-
     // mkdist builder transpiles file-to-file keeping original sources structure
-    // {
-    //   builder: 'rollup',
-    //   emitCjs: true,
-    //   input: './src',
-    //   outDir: './dist',
-    //   format: 'esm',
-    //   ext: 'mjs'
-    // }
     {
-      builder: 'rollup',
-      input: './src/index',
+      builder: 'mkdist',
+      input: './src',
       outDir: './dist',
-      format: 'esm'
+      format: 'esm',
+      ext: 'mjs'
+    },
+    './src/index',
+    {
+      builder: 'mkdist',
+      input: './src',
+      outDir: './dist',
+      format: 'cjs',
+      ext: 'cjs'
     }
   ],
-  rollup: {
-    // If you want to use rollup plugins, you can use this option
-    emitCJS: true
-  },
-  declaration: true,
+
   // Change outDir, default is 'dist'
-  outDir: 'dist',
+  outDir: './dist',
+  clean: true,
 
   // Generates .d.ts declaration file
+  declaration: true,
   failOnWarn: false
 })

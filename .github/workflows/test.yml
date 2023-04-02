@@ -22,8 +22,10 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 7
-          run_install: false
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -38,9 +40,6 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install
 
       - name: Run tests
         run: pnpm ci:test
