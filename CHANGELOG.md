@@ -4,10 +4,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.12](https://github.com/tbusillo/teensy-uuid/compare/v0.0.11...v0.0.12) (2023-06-02)
 
+<<<<<<< HEAD
 ### [0.0.11](https://github.com/tbusillo/teensy-uuid/compare/v0.0.10...v0.0.11) (2023-06-02)
 
 ### [0.0.10](https://github.com/tbusillo/teensy-uuid/compare/v0.0.9...v0.0.10) (2023-04-02)
 
+=======
+>>>>>>> 99080c3 (Updates to CHANGELOG)
 ### Bug Fixes
 
 - update pnpm lock file ([1ee3c89](https://github.com/tbusillo/teensy-uuid/commit/1ee3c890c772fed87439bbe146ebf8c60a9ab7a1))
