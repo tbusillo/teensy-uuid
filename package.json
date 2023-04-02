@@ -36,6 +36,7 @@
     "dist"
   ],
   "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
     "@teensy:registry": "https://registry.npmjs.org/"
   },
   "scripts": {
@@ -46,7 +47,7 @@
     "stub": "pnpm unbuild --stub",
     "test": "jest",
     "lint": "eslint --ext .ts --fix",
-    "pre:ci:test": "pnpm install -r --store=node_modules/.pnpm-store",
+    "pre:ci:test": "pnpm install -r --store=node_modules/.pnpm-store --no-frozen-lockfile",
     "ci:test": "pnpm build && pnpm test",
     "clean": "rm -rf dist",
     "release": "standard-version",
