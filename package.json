@@ -1,7 +1,7 @@
 {
   "name": "@teensy/uuid",
   "author": "Tom Busillo",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "packageManager": "pnpm@8.1.0",
   "description": "A teensy-tiny Node UUID v4 generator",
   "type": "module",
@@ -22,7 +22,7 @@
     "uuid"
   ],
   "sideEffects": false,
-  "main": "./dist/index.mjs",
+  "main": "",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -54,7 +54,8 @@
     "format": "prettier --write '**/*.{ts,js,json,md}'",
     "lint-staged": "pnpm lint && pnpm format",
     "prepare": "pnpm husky install",
-    "publish": "pnpm build && pnpm publish --access public"
+    "publish": "pnpm build && pnpm publish --access public",
+    "practice": "esbuild ./src/index.ts ./src/node.ts ./src/browser.ts --platform=neutral --packages=external --bundle --sourcemap --splitting --tree-shaking=true --format=esm --outdir=dist --servedir=dist"
   },
   "nodemonConfig": {
     "include": [
