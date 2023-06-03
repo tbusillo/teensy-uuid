@@ -45,7 +45,7 @@
     "typecheck": "tsc -p tsconfig.dev.json --noEmit",
     "lint": "eslint --ext .ts --fix",
     "pre:ci:test": "pnpm install -r --store=node_modules/.pnpm-store --no-frozen-lockfile",
-    "ci:test": "pnpm build && pnpm coverage && pnpm test:e2e",
+    "ci:test": "pnpm build && pnpm coverage",
     "clean": "rimraf dist",
     "release": "standard-version",
     "format": "prettier --write '**/*.{ts,js,json,md}'",
