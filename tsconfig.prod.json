@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true
+  }
+}
