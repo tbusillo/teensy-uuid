@@ -33,14 +33,12 @@ pnpm add @teensy/uuid
 import uuid from '@teensy/uuid'
 
 const id = uuid() // example output: 8b2e5e9e-2a5b-4e7b-8e1a-4b1d9a4e7f2a
-
 ```
 
 ## Releasing
 
 If you intend to distribute your package via a manager (e.g., `npm`, `yarn`, etc), this template
 includes [standard-version](https://github.com/conventional-changelog/standard-version).
-
 
 ## Releasing
 
