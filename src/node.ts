@@ -7,7 +7,7 @@ import { formatUUID, setSignificantBits } from './utils'
  */
 
 export const node = (): string => {
-  const crypto = require('crypto').webcrypto
+  const crypto = require('crypto')
   // Generate 16 random bytes
   const bytes: Uint8Array = crypto.getRandomValues(new Uint8Array(16))
 

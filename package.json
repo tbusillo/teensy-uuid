@@ -31,26 +31,26 @@
     "@teensy:registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "dev": "unbuild",
-    "start": "nodemon --exec ts-node src/index.ts",
+    "dev": "nodemon --exec pnpm serve",
     "prebuild": "test \"$CI\" = true && npx pnpm install -r --store=node_modules/.pnpm-store || echo skiping pnpm install",
     "build": "pnpm clean && tsup --dts",
-    "serve": "pnpm build && cp ./test/index.html ./dist/index.html && esbuild --servedir=dist",
-    "dev:browser": "nodemon --exec pnpm serve",
-    "stub": "pnpm unbuild --stub",
-    "test": "vitest",
+    "serve": "pnpm build && cp src/tests/fixtures/index.html dist/index.html && esbuild --serve=3005 --servedir=dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "coverage": "vitest run --coverage",
-    "typecheck": "tsc --noEmit",
+    "test:ui": "vitest --ui",
+    "test:e2e": "npx playwright test",
+    "test:e2e:ui": "npx playwright test --ui",
+    "typecheck": "tsc -p tsconfig.dev.json --noEmit",
     "lint": "eslint --ext .ts --fix",
     "pre:ci:test": "pnpm install -r --store=node_modules/.pnpm-store --no-frozen-lockfile",
-    "ci:test": "pnpm build && pnpm test",
+    "ci:test": "pnpm build && pnpm coverage && pnpm test:e2e",
     "clean": "rimraf dist",
     "release": "standard-version",
     "format": "prettier --write '**/*.{ts,js,json,md}'",
-    "lint-staged": "pnpm lint && pnpm format",
+    "lint-staged": "pnpm lint && pnpm typecheck && pnpm format",
     "prepare": "husky install",
-    "publish": "NODE_ENV=production pnpm build && pnpm publish --access public",
-    "practice": "esbuild ./src/index.ts ./src/node.ts ./src/browser.ts --platform=neutral --packages=external --bundle --sourcemap --splitting --tree-shaking=true --format=esm --outdir=dist --servedir=dist"
+    "publish": "NODE_ENV=production pnpm build && pnpm publish --access public"
   },
   "nodemonConfig": {
     "watch": [
@@ -78,9 +78,11 @@
     }
   },
   "devDependencies": {
+    "@playwright/test": "^1.34.3",
     "@types/node": "^18.7.15",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
+    "@vitest/ui": "^0.31.4",
     "dotenv": "^16.0.2",
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",

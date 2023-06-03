@@ -13,6 +13,12 @@
     "declarationDir": "dist",
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "removeComments": true
-  }
+    "removeComments": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "test/*": ["test/*"]
+    }
+  },
+  "include": ["src/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }

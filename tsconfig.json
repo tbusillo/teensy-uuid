@@ -1,9 +1,9 @@
 {
-  "extends": "./tsconfig.dev.json",
   "compilerOptions": {
+    "target": "ESNext",
     "baseUrl": ".",
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "./src"
   },
   "include": ["src/*.ts"],
   "exclude": ["node_modules", "dist"]

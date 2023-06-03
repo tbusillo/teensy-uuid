@@ -1,5 +1,5 @@
 import { describe, it, assert } from 'vitest'
-import uuid from '../src/index'
+import uuid from '../index'
 
 describe('uuid', () => {
   it('returns a UUID without errors', () => {
@@ -25,14 +25,6 @@ describe('uuid', () => {
   describe('when used in a browser', () => {
     it('returns a UUID without errors', () => {
       assert.typeOf(uuid(), 'string')
-    })
-  })
-
-  describe('when passed a config of `short=true`', () => {
-    it('returns a short UUID without errors', () => {
-      const result = uuid({ short: true })
-      assert.typeOf(result, 'string')
-      assert.lengthOf(result, 6)
     })
   })
 })

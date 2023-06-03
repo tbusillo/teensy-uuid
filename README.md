@@ -13,57 +13,26 @@
 
 ## Features
 
-- 3.5kb
+- 3.5kb minified, with no dependencies
 - RFC 4122 compliant UUID v4
-- Uses `crypto.webcrypto` for generating random numbers used to seed UUID
-- Use of `.webcrypto` makes this package usable in Node as well as the browser
+- Isomorphic - it works in the browser as well as with Node.js, without use of browserify, a bundler, or other dependencies
 
 ## Installation
 
-Using the Github UI, [create a new repository](https://github.com/tbusillo/teensy-typescript-package/generate) based on this template.
-
-You can also clone it using the below:
-
 ```bash
-git clone git@github.com:tbusillo/teensy-typescript-package.git
+npm install @teensy/uuid
 
-# install the dependencies
-pnpm install && pnpm build && pnpm dev
+yarn add @teensy/uuid
+
+pnpm add @teensy/uuid
 ```
 
-## Getting Started
+## Usage
 
-```bash
-# clone the template via Github.com or...
-git clone git@github.com:tbusillo/teensy-typescript-package.git
+```typescript
+import uuid from '@teensy/uuid';
 
-# OR, go to
-
-# install dependencies
-pnpm install
-
-# stub /dist - great for use with playgrounds/monorepos
-pnpm dev # pnpm stub --dev
-
-# Run tests
-pnpm test
-
-# Lint / format
-pnpm lint
-
-# Run with nodemon (reload on file change) and transpile with TSC
-pnpm start
-
-# Build package
-pnpm build
-
-# Clean /dist cache
-pnpm clean
-
-# Install git hooks
-pnpm prepare
-# Install git hooks
-pnpm prepare
+const id = uuid();
 ```
 
 ## Releasing
@@ -73,14 +42,17 @@ includes [standard-version](https://github.com/conventional-changelog/standard-v
 
 To run a release, update the included `./.npmrc` with the URL of the
 
-## License
 
 ## Releasing
 
-If you intend to distribute your package via a manager (e.g., `npm`, `yarn`, etc), this template
-includes [standard-version](https://github.com/conventional-changelog/standard-version).
+To release a new version, run the following command:
+```bash
 
-To run a release, update the included `./.npmrc` with the URL of the
+pnpm run release
+
+```
+
+Canary versions are released automatically on every push to `main` via CI. To use a canary version in your project, use `@teensy/uuid@canary`.
 
 ## License
 

@@ -7,20 +7,18 @@ export default defineConfig({
   entry: ['src/index.ts'],
   tsconfig: isProd ? 'tsconfig.prod.json' : 'tsconfig.dev.json',
   minify: isProd && 'terser',
+  minifyIdentifiers: isProd,
+  minifyWhitespace: isProd,
   format: ['cjs', 'esm'],
+  external: ['crypto'],
   clean: true,
-  sourcemap: !isProd,
-  platform: 'neutral',
+  sourcemap: !isProd && 'inline',
   dts: true,
   splitting: true,
-  target: [
-    'node16',
-    'chrome',
-    'deno',
-    'edge',
-    'es5',
-    'firefox',
-    'ios',
-    'safari'
-  ]
+  treeshake: isProd,
+  terserOptions: {
+    compress: {
+      drop_console: isProd
+    }
+  }
 })
