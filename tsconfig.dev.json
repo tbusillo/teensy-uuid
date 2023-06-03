@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
@@ -6,19 +7,19 @@
     "strict": true,
     "strictNullChecks": true,
     "esModuleInterop": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "noUnusedLocals": true,
     "skipLibCheck": true,
-    "sourceMap": true,
     "declaration": true,
     "declarationDir": "dist",
-    "allowJs": true,
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "removeComments": true
+    "paths": {
+      "@src/*": ["./*"],
+      "tests/*": ["tests/*"]
+    }
   },
   "include": ["src/*.ts"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "dist"],
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node"

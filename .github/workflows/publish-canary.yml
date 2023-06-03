@@ -3,7 +3,7 @@ name: NPM Publish
 on:
   push:
     branches:
-      - master
+      - develop
 
 jobs:
   build:
@@ -37,17 +37,22 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - name: test
-        run: pnpm ci:test
-
-      - name: create a release
-        run: pnpm run release
+        run: pnpm test && pnpm test:e2e
 
       - name: Publish to NPM
         shell: bash
         run: |
           npm config set "//registry.npmjs.org/:_authToken" "${{secrets.NPM_AUTH_TOKEN}}"
           npm config set "@teensy:registry" "https://registry.npmjs.org/"
-
-      - run: npm publish --access=public --tag=latest
+          node -e "
+          const pkg = require('./package.json')
+          const rev = require('child_process')
+            .execSync('git rev-parse --short=8 HEAD')
+            .toString()
+            .trim()
+          pkg.version = pkg.version + '-next-' + rev
+          require('fs').writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
+          "
+      - run: npm publish --access=public --tag=next
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}

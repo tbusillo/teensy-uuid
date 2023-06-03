@@ -1,7 +1,7 @@
 {
   "name": "@teensy/uuid",
   "author": "Tom Busillo",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "packageManager": "pnpm@8.1.0",
   "description": "A teensy-tiny Node UUID v4 generator",
   "type": "module",
@@ -22,16 +22,8 @@
     "uuid"
   ],
   "sideEffects": false,
-  "main": "",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": null,
-      "import": "./dist/index.mjs"
-    }
-  },
+  "main": "./dist/index.js",
+  "browser": "./dist/index.js",
   "files": [
     "dist"
   ],
@@ -40,28 +32,36 @@
     "@teensy:registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "dev": "unbuild",
-    "start": "nodemon --exec ts-node src/index.ts",
+    "dev": "nodemon --exec pnpm serve",
     "prebuild": "test \"$CI\" = true && npx pnpm install -r --store=node_modules/.pnpm-store || echo skiping pnpm install",
-    "build": "pnpm clean && unbuild",
-    "stub": "pnpm unbuild --stub",
-    "test": "jest",
+    "build": "NODE_ENV=development pnpm clean && tsup",
+    "serve": "pnpm build && cp src/tests/fixtures/index.html dist/index.html && esbuild --serve=3005 --servedir=dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "test:e2e": "npx playwright test",
+    "test:e2e:ui": "npx playwright test --ui",
+    "typecheck": "tsc -p tsconfig.dev.json --noEmit",
     "lint": "eslint --ext .ts --fix",
     "pre:ci:test": "pnpm install -r --store=node_modules/.pnpm-store --no-frozen-lockfile",
-    "ci:test": "pnpm build && pnpm test",
-    "clean": "rm -rf dist",
+    "ci:test": "pnpm build && pnpm coverage",
+    "clean": "rimraf dist",
     "release": "standard-version",
     "format": "prettier --write '**/*.{ts,js,json,md}'",
-    "lint-staged": "pnpm lint && pnpm format",
-    "prepare": "pnpm husky install",
-    "publish": "pnpm build && pnpm publish --access public",
-    "practice": "esbuild ./src/index.ts ./src/node.ts ./src/browser.ts --platform=neutral --packages=external --bundle --sourcemap --splitting --tree-shaking=true --format=esm --outdir=dist --servedir=dist"
+    "lint-staged": "pnpm lint && pnpm typecheck && pnpm format",
+    "prepare": "husky install",
+    "publish": "NODE_ENV=production pnpm build && pnpm publish --access public"
   },
   "nodemonConfig": {
-    "include": [
+    "watch": [
       "src",
       "test"
     ],
+    "ext": "ts,html",
+    "execMap": {
+      "ts": "ts-node"
+    },
     "ignore": [
       "dist",
       "node_modules"
@@ -69,34 +69,36 @@
   },
   "husky": {
     "hooks": {
+      "pre-add": "pnpm typecheck",
       "pre-commit": [
         "lint-staged",
+        "pnpm typecheck",
         "pnpm test",
         "git add"
       ]
     }
   },
   "devDependencies": {
-    "@jest/globals": "^29.0.2",
-    "@types/jest": "^29.0.0",
+    "@playwright/test": "^1.34.3",
     "@types/node": "^18.7.15",
-    "@types/sinon": "^10.0.13",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
+    "@vitest/coverage-c8": "^0.31.4",
+    "@vitest/ui": "^0.31.4",
     "dotenv": "^16.0.2",
+    "esbuild": "^0.17.19",
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.1",
-    "jest": "^28.1.3",
     "lint-staged": "^13.0.3",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
     "rimraf": "^5.0.0",
-    "sinon": "^15.0.0",
     "standard-version": "^9.5.0",
-    "ts-jest": "^28.0.8",
+    "terser": "^5.17.7",
     "ts-node": "^10.9.1",
+    "tsup": "^6.7.0",
     "typescript": "^5.0.4",
-    "unbuild": "^1.0.2"
+    "vitest": "^0.31.4"
   }
 }

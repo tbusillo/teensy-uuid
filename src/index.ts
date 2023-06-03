@@ -1,13 +1,11 @@
-import { nodeUUID } from './node'
-import { browserUUID } from './browser'
+import { browser } from './browser'
+import { node } from './node'
 
 const uuid = (): string => {
-  if (typeof window !== 'undefined') {
-    return browserUUID()
-  } else {
-    return nodeUUID()
+  if (typeof window !== 'undefined' && window.crypto) {
+    return browser()
   }
+  return node()
 }
 
 export default uuid
-export { nodeUUID, browserUUID }

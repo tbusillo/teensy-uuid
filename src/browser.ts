@@ -6,8 +6,9 @@ import { convertToHex, formatUUID, setSignificantBits } from './utils'
  * @returns {string} Output a 36-character string in the folowing format: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
  */
 
-export const browserUUID = (): string => {
-  const crypto = typeof window !== 'undefined' && window.crypto
+export const browser = (): string => {
+  const crypto: Crypto | boolean =
+    typeof window !== 'undefined' && window.crypto
 
   if (crypto) {
     // Generate 16 random bytes
@@ -24,7 +25,7 @@ export const browserUUID = (): string => {
     // Encode the adjusted bytes as 32 hexadecimal digits
     const hex = convertToHex(encodedBytes)
 
-    if (typeof hex !== 'string' || !hex || hex.length !== 32) {
+    if (!hex || typeof hex !== 'string' || hex.length !== 32) {
       throw new Error(
         'Unable to encode random bytes as a string of hexadecimal digits'
       )
