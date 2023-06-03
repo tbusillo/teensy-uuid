@@ -30,9 +30,10 @@ pnpm add @teensy/uuid
 ## Usage
 
 ```typescript
-import uuid from '@teensy/uuid';
+import uuid from '@teensy/uuid'
 
-const id = uuid();
+const id = uuid() // example output: 8b2e5e9e-2a5b-4e7b-8e1a-4b1d9a4e7f2a
+
 ```
 
 ## Releasing
@@ -40,12 +41,11 @@ const id = uuid();
 If you intend to distribute your package via a manager (e.g., `npm`, `yarn`, etc), this template
 includes [standard-version](https://github.com/conventional-changelog/standard-version).
 
-To run a release, update the included `./.npmrc` with the URL of the
-
 
 ## Releasing
 
 To release a new version, run the following command:
+
 ```bash
 
 pnpm run release
@@ -58,4 +58,4 @@ Canary versions are released automatically on every push to `main` via CI. To us
 
 MIT License
 
-Copyright (c) 2022 Tom
+Copyright (c) 2023 Tom
