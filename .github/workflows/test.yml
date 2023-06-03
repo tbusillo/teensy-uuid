@@ -1,6 +1,5 @@
 on:
-  - push
-  - pull_request
+  push:
 
 jobs:
   run-tests-and-lint:
