@@ -3,22 +3,26 @@ import { defineConfig } from 'tsup'
 const { NODE_ENV: env } = process.env
 const isProd = !!(env === 'production')
 
+const productionConfig = {
+  tsconfig: 'tsconfig.prod.json',
+  sourcemap: false,
+  minify: true,
+  format: ['cjs', 'esm', 'iife'],
+  splitting: true,
+  treeshake: true,
+  minifyIdentifiers: true,
+  minifyWhitespace: true
+}
+
+const developmentConfig = {
+  tsconfig: 'tsconfig.dev.json',
+  sourcemap: 'inline',
+  format: ['cjs', 'esm']
+}
+
 export default defineConfig({
   entry: ['src/index.ts'],
-  tsconfig: isProd ? 'tsconfig.prod.json' : 'tsconfig.dev.json',
-  minify: isProd && 'terser',
-  minifyIdentifiers: isProd,
-  minifyWhitespace: isProd,
-  format: ['cjs', 'esm'],
-  external: ['crypto'],
   clean: true,
-  sourcemap: !isProd && 'inline',
   dts: true,
-  splitting: true,
-  treeshake: isProd,
-  terserOptions: {
-    compress: {
-      drop_console: isProd
-    }
-  }
-})
+  ...(isProd ? productionConfig : developmentConfig)
+} as any)

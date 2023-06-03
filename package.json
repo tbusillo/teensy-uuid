@@ -23,6 +23,7 @@
   ],
   "sideEffects": false,
   "main": "./dist/index.js",
+  "browser": "./dist/index.js",
   "files": [
     "dist"
   ],
@@ -33,7 +34,7 @@
   "scripts": {
     "dev": "nodemon --exec pnpm serve",
     "prebuild": "test \"$CI\" = true && npx pnpm install -r --store=node_modules/.pnpm-store || echo skiping pnpm install",
-    "build": "pnpm clean && tsup --dts",
+    "build": "NODE_ENV=development pnpm clean && tsup",
     "serve": "pnpm build && cp src/tests/fixtures/index.html dist/index.html && esbuild --serve=3005 --servedir=dist",
     "test": "vitest run",
     "test:watch": "vitest",
