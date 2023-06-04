@@ -7,12 +7,21 @@ import { convertToHex, formatUUID, setSignificantBits } from './utils'
  */
 
 export const browser = (): string => {
-  const crypto: Crypto | boolean =
-    typeof window !== 'undefined' && window.crypto
+  const crypto: Crypto =
+    !!(globalThis && globalThis.crypto && globalThis.window) &&
+    globalThis.crypto
 
-  if (crypto) {
+  if (!crypto) {
+    throw new Error(
+      'globalThis.crypto is not available. Are you in a Node environment?'
+    )
+  }
+
+  const { getRandomValues } = crypto as Crypto
+
+  if (getRandomValues) {
     // Generate 16 random bytes
-    const bytes: Uint8Array = crypto.getRandomValues(new Uint8Array(16))
+    const bytes: Uint8Array = getRandomValues(new Uint8Array(16))
 
     if (!bytes || bytes.length !== 16) {
       throw new Error(
@@ -32,13 +41,13 @@ export const browser = (): string => {
     }
 
     // Add four hyphen "-" characters to obtain blocks of 8, 4, 4, 4 and 12 hex digits
-    const result = formatUUID(hex)
+    const uuid = formatUUID(hex)
 
-    if (!result) {
+    if (!uuid) {
       throw new Error('Unable to generate a UUID')
     }
 
-    return result
+    return uuid
   }
   throw new Error('globalThis.crypto is not available')
 }
