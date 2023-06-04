@@ -1,5 +1,5 @@
-import { describe, it, assert } from 'vitest'
-import uuid from '../index'
+import { describe, it, assert, vi, afterEach, beforeEach } from 'vitest'
+import uuid, { browser } from '../index'
 
 describe('uuid', () => {
   it('returns a UUID without errors', () => {
@@ -25,6 +25,29 @@ describe('uuid', () => {
   describe('when used in a browser', () => {
     it('returns a UUID without errors', () => {
       assert.typeOf(uuid(), 'string')
+    })
+  })
+
+  describe('browser', () => {
+    let _crypto: Crypto = globalThis.crypto
+
+    beforeEach(() => {
+      _crypto = globalThis.crypto
+    })
+
+    afterEach(() => {
+      globalThis.crypto = _crypto
+    })
+
+    it('throws an error when globalThis.crypto is not available', () => {
+      const crypto = globalThis.crypto
+
+      vi.stubGlobal('crypto', undefined)
+
+      assert.throws(() => {
+        browser()
+      })
+      globalThis.crypto = crypto
     })
   })
 })
