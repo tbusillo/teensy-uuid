@@ -20,9 +20,7 @@ jobs:
         id: pnpm-install
         with:
           version: 7
-          run_install: |
-            - recursive: true
-              args: [--frozen-lockfile, --strict-peer-dependencies]
+          run_install: false
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -35,8 +33,13 @@ jobs:
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
-      - name: test
+      - name: Install dependencies
+        run: pnpm install && pnpm build
+
+      - name: Run tests
         run: pnpm ci:test
 
       - name: create a release
@@ -48,6 +51,6 @@ jobs:
           npm config set "//registry.npmjs.org/:_authToken" "${{secrets.NPM_AUTH_TOKEN}}"
           npm config set "@teensy:registry" "https://registry.npmjs.org/"
 
-      - run: npm publish --access=public --tag=latest
+      - run: pnpm run publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
