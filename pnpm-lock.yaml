@@ -21,7 +21,7 @@ devDependencies:
     version: 0.31.4(vitest@0.31.4)
   dotenv:
     specifier: ^16.0.2
-    version: 16.0.2
+    version: 16.3.1
   esbuild:
     specifier: ^0.17.19
     version: 0.17.19
@@ -1366,8 +1366,8 @@ packages:
       is-obj: 2.0.0
     dev: true
 
-  /dotenv@16.0.2:
-    resolution: {integrity: sha512-JvpYKUmzQhYoIFgK2MOnF3bciIZoItIIoryihy0rIA+H4Jy0FmgyKYAHCTN98P5ybGSJcIFbh6QKeJdtZd1qhA==}
+  /dotenv@16.3.1:
+    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
     engines: {node: '>=12'}
     dev: true
 
