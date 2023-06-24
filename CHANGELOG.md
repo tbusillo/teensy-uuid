@@ -4,10 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.14](https://github.com/tbusillo/teensy-uuid/compare/v0.0.12...v0.0.14) (2023-06-24)
 
-
 ### Bug Fixes
 
-* remove node scope from crypto import ([#31](https://github.com/tbusillo/teensy-uuid/issues/31)) ([80b43ea](https://github.com/tbusillo/teensy-uuid/commit/80b43eae939f825ad7a0a2895b6c1803fd338b38))
+- remove node scope from crypto import ([#31](https://github.com/tbusillo/teensy-uuid/issues/31)) ([80b43ea](https://github.com/tbusillo/teensy-uuid/commit/80b43eae939f825ad7a0a2895b6c1803fd338b38))
 
 ### [0.0.13](https://github.com/tbusillo/teensy-uuid/compare/v0.0.12...v0.0.13) (2023-06-03)
 
