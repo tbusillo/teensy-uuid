@@ -2,6 +2,8 @@ name: NPM Publish
 
 on:
   push:
+    branches:
+      - develop
 
 jobs:
   build:
@@ -13,7 +15,9 @@ jobs:
         id: pnpm-install
         with:
           version: 7
-          run_install: false
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -33,11 +37,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: test
-        run: pnpm test && pnpm test:e2e
-
       - name: Install dependencies
         run: pnpm install && pnpm build
+
+      - name: test
+        run: pnpm test && pnpm test:e2e
 
       - name: Publish to NPM
         shell: bash
