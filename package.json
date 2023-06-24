@@ -22,8 +22,17 @@
     "uuid"
   ],
   "sideEffects": false,
-  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "browser": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -51,7 +60,7 @@
     "format": "prettier --write '**/*.{ts,js,json,md}'",
     "lint-staged": "pnpm lint && pnpm typecheck && pnpm format",
     "prepare": "husky install",
-    "publish": "NODE_ENV=production pnpm build && pnpm publish --access public"
+    "publish": "NODE_ENV=production pnpm build && pnpm publish --access public && git push --follow-tags"
   },
   "nodemonConfig": {
     "watch": [

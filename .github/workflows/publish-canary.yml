@@ -35,9 +35,14 @@ jobs:
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: test
         run: pnpm test && pnpm test:e2e
+
+      - name: Install dependencies
+        run: pnpm install && pnpm build
 
       - name: Publish to NPM
         shell: bash
