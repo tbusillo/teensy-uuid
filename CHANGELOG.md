@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/tbusillo/teensy-uuid/compare/v0.0.14...v0.0.15) (2023-06-24)
+
 ### [0.0.14](https://github.com/tbusillo/teensy-uuid/compare/v0.0.12...v0.0.14) (2023-06-24)
 
 ### Bug Fixes
