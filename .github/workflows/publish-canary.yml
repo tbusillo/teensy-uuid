@@ -36,7 +36,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install && pnpm build
+        run: pnpm install && pnpm build && npx playwright install-deps
 
       - name: test
         run: pnpm test && pnpm test:e2e
