@@ -2,27 +2,22 @@ name: NPM Publish
 
 on:
   push:
-    branches:
-      - develop
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'pnpm'
-
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
         with:
           version: 7
-          run_install: |
-            - recursive: true
-              args: [--frozen-lockfile, --strict-peer-dependencies]
+          run_install: false
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
 
       - name: Get pnpm store directory
         id: pnpm-cache
